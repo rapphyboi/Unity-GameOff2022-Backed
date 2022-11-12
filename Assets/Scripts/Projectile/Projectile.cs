@@ -8,13 +8,11 @@ public class Projectile : MonoBehaviour
     [SerializeField] float rotationSpeed = 10f;
 
     public List<GameObject> items = new List<GameObject>();
-    public Vector2 enemyPos;
     Rigidbody2D rb;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        enemyPos.Normalize();
-        rb.velocity = enemyPos * projectileSpeed;
+        rb.velocity = Vector2.right * projectileSpeed;
         Debug.Log(rb.velocity);
     }
 

@@ -19,7 +19,6 @@ public class LaneDetector : MonoBehaviour
         if (collision.GetComponent<EnemyMovement>())
         {
             playerAnimator.SetBool("EnemyDetected", true);
-            shoot.enemyPos = collision.transform.position;
         }
     }
 }

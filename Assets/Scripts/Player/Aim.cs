@@ -51,7 +51,7 @@ public class Aim : MonoBehaviour
 
     void TopLaneActivate()
     {
-        transform.position = new Vector2(0, 1.5f);
+        transform.position = new Vector2(0, 2f);
         top.enabled = true;
         mid.enabled = false;
         bottom.enabled = false;
@@ -65,7 +65,7 @@ public class Aim : MonoBehaviour
     }
     void BottomLaneActivate()
     {
-        transform.position = new Vector2(0, -1.5f);
+        transform.position = new Vector2(0, -2f);
         top.enabled = false;
         mid.enabled = false;
         bottom.enabled = true;
