@@ -150,9 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5ab30e33b98ca4b8146e3086fb3b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topLane: {fileID: 0}
-  middleLane: {fileID: 0}
-  bottomLane: {fileID: 0}
+  top: {fileID: 0}
+  mid: {fileID: 0}
+  bottom: {fileID: 0}
+  laneCounter: 0
 --- !u!114 &3900922781576184073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93985081f71beb54c85cf534268efddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 7997204728999615207, guid: b684979aadacd074abf5138244938b9b, type: 3}
+  gun: {fileID: 6404757409282495611}
+  enemyPos: {x: 0, y: 0}
 --- !u!95 &6404757409284847121
 Animator:
   serializedVersion: 3

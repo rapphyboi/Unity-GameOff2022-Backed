@@ -4,24 +4,16 @@ using UnityEngine;
 
 public class Aim : MonoBehaviour
 {
-    [SerializeField] GameObject topLane;
-    [SerializeField] GameObject middleLane;
-    [SerializeField] GameObject bottomLane;
+    [SerializeField] Collider2D top;
+    [SerializeField] Collider2D mid;
+    [SerializeField] Collider2D bottom;
 
-    Vector2 aim;
-
-    public int laneCounter = 0;
+    int laneCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
         laneCounter = 0;
-        
-        topLane.GetComponent<Collider2D>().enabled = false;
-        middleLane.GetComponent<Collider2D>().enabled = true;
-        bottomLane.GetComponent<Collider2D>().enabled = false;
-        topLane.GetComponentInChildren<SpriteRenderer>().enabled = false;
-        middleLane.GetComponentInChildren<SpriteRenderer>().enabled = true;
-        bottomLane.GetComponentInChildren<SpriteRenderer>().enabled = false;
+        MidLaneActivate();
     }
 
     // Update is called once per frame
@@ -44,33 +36,38 @@ public class Aim : MonoBehaviour
     {
         if(laneCounter == 1)
         {
-            topLane.GetComponent<Collider2D>().enabled = true;
-            middleLane.GetComponent<Collider2D>().enabled = false;
-            bottomLane.GetComponent<Collider2D>().enabled = false;
 
-            topLane.GetComponentInChildren<SpriteRenderer>().enabled = true;
-            middleLane.GetComponentInChildren<SpriteRenderer>().enabled = false;
-            bottomLane.GetComponentInChildren<SpriteRenderer>().enabled = false;
+            TopLaneActivate();
         }
         else if(laneCounter == -1)
         {
-            topLane.GetComponent<Collider2D>().enabled = false;
-            middleLane.GetComponent<Collider2D>().enabled = false;
-            bottomLane.GetComponent<Collider2D>().enabled = true;
-
-            topLane.GetComponentInChildren<SpriteRenderer>().enabled = false;
-            middleLane.GetComponentInChildren<SpriteRenderer>().enabled = false;
-            bottomLane.GetComponentInChildren<SpriteRenderer>().enabled = true;
+            BottomLaneActivate();
         }
         else
         {
-            topLane.GetComponent<Collider2D>().enabled = false;
-            middleLane.GetComponent<Collider2D>().enabled = true;
-            bottomLane.GetComponent<Collider2D>().enabled = false;
-
-            topLane.GetComponentInChildren<SpriteRenderer>().enabled = false;
-            middleLane.GetComponentInChildren<SpriteRenderer>().enabled = true;
-            bottomLane.GetComponentInChildren<SpriteRenderer>().enabled = false;
+            MidLaneActivate();
         }
+    }
+
+    void TopLaneActivate()
+    {
+        transform.position = new Vector2(0, 1.5f);
+        top.enabled = true;
+        mid.enabled = false;
+        bottom.enabled = false;
+    }
+    void MidLaneActivate()
+    {
+        transform.position = new Vector2(0, 0);
+        top.enabled = false;
+        mid.enabled = true;
+        bottom.enabled = false;
+    }
+    void BottomLaneActivate()
+    {
+        transform.position = new Vector2(0, -1.5f);
+        top.enabled = false;
+        mid.enabled = false;
+        bottom.enabled = true;
     }
 }
