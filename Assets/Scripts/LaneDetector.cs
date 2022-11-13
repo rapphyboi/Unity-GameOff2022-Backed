@@ -21,5 +21,10 @@ public class LaneDetector : MonoBehaviour
             playerAnimator.SetBool("EnemyDetected", true);
         }
     }
+
+    private void OnMouseDown()
+    {
+        Debug.Log(transform.position);
+    }
 }
 
