@@ -58,12 +58,17 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Player\Shoot.cs" />
-    <Compile Include="Assets\Scripts\EnemyDeath.cs" />
+    <Compile Include="Assets\Scripts\Player\CollisionChild.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyDeath.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerDeath.cs" />
     <Compile Include="Assets\Scripts\Player\Aim.cs" />
     <Compile Include="Assets\Scripts\Projectile\Projectile.cs" />
-    <Compile Include="Assets\Scripts\LaneDetector.cs" />
     <Compile Include="Assets\Scripts\Pet\PetMovement.cs" />
+    <Compile Include="Assets\Scripts\LaneDetector.cs" />
+    <Compile Include="Assets\Scripts\Player\Player.cs" />
+    <Compile Include="Assets\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

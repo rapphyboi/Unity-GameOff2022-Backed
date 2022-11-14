@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Aim : MonoBehaviour
 {
-    [SerializeField] Collider2D top;
-    [SerializeField] Collider2D mid;
-    [SerializeField] Collider2D bottom;
+
 
     int laneCounter = 0;
     // Start is called before the first frame update
@@ -36,7 +34,6 @@ public class Aim : MonoBehaviour
     {
         if(laneCounter == 1)
         {
-
             TopLaneActivate();
         }
         else if(laneCounter == -1)
@@ -52,22 +49,16 @@ public class Aim : MonoBehaviour
     void TopLaneActivate()
     {
         transform.position = new Vector2(0, 2f);
-        top.enabled = true;
-        mid.enabled = false;
-        bottom.enabled = false;
+
     }
     void MidLaneActivate()
     {
         transform.position = new Vector2(0, 0);
-        top.enabled = false;
-        mid.enabled = true;
-        bottom.enabled = false;
+
     }
     void BottomLaneActivate()
     {
         transform.position = new Vector2(0, -2f);
-        top.enabled = false;
-        mid.enabled = false;
-        bottom.enabled = true;
+
     }
 }
