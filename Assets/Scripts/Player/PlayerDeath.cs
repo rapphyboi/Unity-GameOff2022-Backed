@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
-    public void PlayerReached()
+    Animator playerAnimator;
+
+    private void Start()
     {
-        Debug.Log("player is attacked");
+        playerAnimator = GetComponent<Animator>();
+    }
+    public void OnLoseAllHealth()
+    {
+        playerAnimator.SetBool("isDead", true);
+    }
+
+    public void DeathAnimationEnd()
+    {
+        Destroy(gameObject);
+        Destroy(FindObjectOfType<CollisionChild>().gameObject);
     }
 }

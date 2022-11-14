@@ -5,9 +5,14 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     [SerializeField] Projectile projectilePrefab;
-    [SerializeField] Animator playerAnimator;
+    Animator playerAnimator;
     [SerializeField] Transform gun;
 
+
+    private void Start()
+    {
+        playerAnimator = GetComponent<Animator>();
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.GetComponent<EnemyMovement>())

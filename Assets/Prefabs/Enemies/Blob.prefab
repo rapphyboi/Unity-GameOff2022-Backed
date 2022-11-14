@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 1648790373}
   - component: {fileID: -6913684920905307860}
   - component: {fileID: 6702007988454624246}
-  m_Layer: 0
+  - component: {fileID: 1195202599976462312}
+  m_Layer: 6
   m_Name: Blob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +133,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.01786089, y: -0.044652224}
@@ -181,3 +182,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scraps: {fileID: 3940336842058375863, guid: 102b2f70ab6e00f43821eef929ec3801, type: 3}
   startPos: {fileID: 0}
+--- !u!114 &1195202599976462312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8275528812696559061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe39b6fc51c38b44c9b9ddc17466b075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobAnimator: {fileID: -6913684920905307860}
