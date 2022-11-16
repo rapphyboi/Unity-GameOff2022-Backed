@@ -9,11 +9,15 @@ public class EnemyDeath : MonoBehaviour
     private void OnDisable()
     {
         transform.position = startPos.position;
-        Debug.Log("dead"); 
     }
 
     private void OnEnable()
     {
-        //transform.position = startPos.position;
+        GetComponent<Enemy>().currentHealth = GetComponent<Enemy>().maxHealth;
+    }
+
+    public void DropScrapsOnDeath()
+    {
+        Instantiate(scraps, transform.position, Quaternion.identity);
     }
 }

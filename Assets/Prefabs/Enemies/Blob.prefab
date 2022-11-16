@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -6913684920905307860}
   - component: {fileID: 6702007988454624246}
   - component: {fileID: 1195202599976462312}
+  - component: {fileID: 8856795627948963494}
   m_Layer: 6
   m_Name: Blob
   m_TagString: Untagged
@@ -122,7 +123,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1648790373
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -195,3 +196,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blobAnimator: {fileID: -6913684920905307860}
+--- !u!114 &8856795627948963494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8275528812696559061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3faf572f1de1a248a60ccfe9fe50be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  currentHealth: 0

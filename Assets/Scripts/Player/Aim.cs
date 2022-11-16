@@ -11,13 +11,13 @@ public class Aim : MonoBehaviour
     void Start()
     {
         laneCounter = 0;
-        MidLaneActivate();
+        SecondLaneActivate();
     }
 
     // Update is called once per frame
     void Update()
     {
-        laneCounter = Mathf.Clamp(laneCounter, -1, 1);
+        laneCounter = Mathf.Clamp(laneCounter, -2, 1);
         if(Input.GetKeyDown("w"))
         {
             laneCounter++;
@@ -34,31 +34,40 @@ public class Aim : MonoBehaviour
     {
         if(laneCounter == 1)
         {
-            TopLaneActivate();
+            FirstLaneActivate();
+        }
+        else if(laneCounter == 0)
+        {
+            SecondLaneActivate();
         }
         else if(laneCounter == -1)
         {
-            BottomLaneActivate();
+            ThirdLaneActivate();
         }
-        else
+        else if(laneCounter == -2)
         {
-            MidLaneActivate();
+            FourthLaneActivate();
         }
     }
 
-    void TopLaneActivate()
+    void FirstLaneActivate()
     {
-        transform.position = new Vector2(0, 2f);
+        transform.position = new Vector2(0, 1.5f);
 
     }
-    void MidLaneActivate()
+    void SecondLaneActivate()
     {
-        transform.position = new Vector2(0, 0);
+        transform.position = new Vector2(0, 0.5f);
 
     }
-    void BottomLaneActivate()
+    void ThirdLaneActivate()
     {
-        transform.position = new Vector2(0, -2f);
+        transform.position = new Vector2(0, -0.5f);
+
+    }
+    void FourthLaneActivate()
+    {
+        transform.position = new Vector2(0, -1.5f);
 
     }
 }

@@ -6,8 +6,8 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] float projectileSpeed = 20f;
     [SerializeField] float rotationSpeed = 10f;
+    [SerializeField] float damage = 10f;
 
-    public List<GameObject> items = new List<GameObject>();
     Rigidbody2D rb;
     void Start()
     {
@@ -28,13 +28,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<EnemyMovement>())
+        if (collision.gameObject.GetComponent<Enemy>())
         {
-            GameObject item = Instantiate(collision.gameObject.GetComponent<EnemyDeath>().scraps, collision.gameObject.transform.position, Quaternion.identity) as GameObject;
-            items.Add(item);
-            Debug.Log(items.Count);
-            collision.gameObject.SetActive(false);
-            Destroy(gameObject);
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 }
