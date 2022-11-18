@@ -492,7 +492,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f86c7d60a9c11542a7671d45fa0b8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
+  petInventorySize: 3
+  scraps: []
 --- !u!1001 &287244635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5291,6 +5293,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8425820715078254641, guid: 06ef67609ed6c7047b91bc3089bec18e, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8425820715078254643, guid: 06ef67609ed6c7047b91bc3089bec18e, type: 3}
       propertyPath: m_RootOrder
       value: 5
