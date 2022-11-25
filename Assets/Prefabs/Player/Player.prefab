@@ -308,7 +308,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7997204728999615207, guid: b684979aadacd074abf5138244938b9b, type: 3}
-  playerAnimator: {fileID: 6404757409284847121}
   gun: {fileID: 6404757409282495611}
 --- !u!95 &6404757409284847121
 Animator:

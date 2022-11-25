@@ -17,8 +17,8 @@ TagManager:
   - Scraps
   - Projectiles
   - Player
-  - 
-  - 
+  - Tile
+  - Tower
   - 
   - 
   - 
@@ -42,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 718794563
+    locked: 0
+  - name: Tile
+    uniqueID: 2512813173
     locked: 0
