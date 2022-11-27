@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] Animator blobAnimator;
+    Animator animator;
     Player player;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         player = FindObjectOfType<Player>();
     }
 
@@ -16,8 +17,8 @@ public class EnemyAttack : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<CollisionChild>())
         {
-            blobAnimator.SetBool("isMoving", false);
-            blobAnimator.SetBool("isAttacking", true);
+            animator.SetBool("isMoving", false);
+            animator.SetBool("isAttacking", true);
         }
     }
 
@@ -25,8 +26,8 @@ public class EnemyAttack : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<CollisionChild>())
         {
-            blobAnimator.SetBool("isMoving", true);
-            blobAnimator.SetBool("isAttacking", false);
+            animator.SetBool("isMoving", true);
+            animator.SetBool("isAttacking", false);
         }
     }
 

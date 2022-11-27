@@ -7,12 +7,13 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 20f;
-    [SerializeField] Animator enemyAnimator;
+    Animator animator;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -27,11 +28,11 @@ public class EnemyMovement : MonoBehaviour
         rb.velocity = Vector2.left * moveSpeed * Time.fixedDeltaTime;
         if(rb.velocity.x != 0)
         {
-            enemyAnimator.SetBool("isMoving", true);
+            animator.SetBool("isMoving", true);
         }
         else
         {
-            enemyAnimator.SetBool("isMoving", false);
+            animator.SetBool("isMoving", false);
         }
     }
 }

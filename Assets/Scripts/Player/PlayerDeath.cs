@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
+    [SerializeField] float gameOverScreenDelay = 3f;
+
     Animator playerAnimator;
+
 
     private void Start()
     {
@@ -17,7 +20,12 @@ public class PlayerDeath : MonoBehaviour
 
     public void DeathAnimationEnd()
     {
-        Destroy(gameObject);
         Destroy(FindObjectOfType<CollisionChild>().gameObject);
+        Destroy(gameObject);
+    }
+
+    IEnumerator ShowGameOverScreen()
+    {
+        yield return new WaitForSeconds(gameOverScreenDelay);
     }
 }
