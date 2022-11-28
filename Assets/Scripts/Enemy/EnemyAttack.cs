@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    [SerializeField] float damage;
     Animator animator;
     Player player;
 
@@ -15,20 +16,22 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<CollisionChild>())
+        if (collision.gameObject.GetComponent<Projectile>())
         {
-            animator.SetBool("isMoving", false);
-            animator.SetBool("isAttacking", true);
+            Debug.Log("Got Hit By Projectile");
         }
+        animator.SetBool("isMoving", false);
+        animator.SetBool("isAttacking", true);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<CollisionChild>())
+        if (collision.gameObject.GetComponent<Projectile>())
         {
-            animator.SetBool("isMoving", true);
-            animator.SetBool("isAttacking", false);
+            Debug.Log("Got Hit By Projectile");
         }
+        animator.SetBool("isMoving", true);
+        animator.SetBool("isAttacking", false);
     }
 
     public void AttackPlayer(float damage)

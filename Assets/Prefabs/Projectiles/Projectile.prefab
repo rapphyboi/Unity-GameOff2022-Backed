@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7997204728999615204}
   - component: {fileID: 7997204728999615207}
   - component: {fileID: -604825881202908045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 20
   rotationSpeed: 700
-  items: []
+  damage: 10
 --- !u!61 &-604825881202908045
 BoxCollider2D:
   m_ObjectHideFlags: 0

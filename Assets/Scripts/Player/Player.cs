@@ -16,12 +16,16 @@ public class Player : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
+    private void Update()
+    {
+        
+    }
 
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        if(currentHealth == 0)
+        if (currentHealth <= 0)
         {
             playerDeath.OnLoseAllHealth();
         }
