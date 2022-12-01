@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             GetComponent<EnemyDeath>().DropScrapsOnDeath();
             gameObject.SetActive(false);

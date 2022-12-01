@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 3900922781576184073}
   - component: {fileID: 6404757409284847121}
   - component: {fileID: 580056616}
+  - component: {fileID: 7557206012931303502}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -259,9 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0abb4466169a0d244af11edfb1a4368a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
   healthBar: {fileID: 6404757410859846747}
+  health: {fileID: 0}
 --- !u!50 &6404757409284847213
 Rigidbody2D:
   serializedVersion: 4
@@ -340,6 +340,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0325987073a73fb48a57f44a4d1a6a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverScreenDelay: 3
+--- !u!114 &7557206012931303502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6404757409284847210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51747bad5694e7438dbd8c195d0cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1001 &6612074013375564603
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,19 +5,22 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     [SerializeField] int damage;
-    [SerializeField] int health;
-    LaneDetector enemyDetector;
+    [SerializeField] int cost = 5;
+    public int Cost { get { return cost; } }
+
+    Health health;
 
     private void Start()
     {
-        enemyDetector = GetComponentInParent<LaneParent>().EnemyDetector;
+        health = GetComponent<Health>();
     }
 
-    private void Update()
-    {
-        if (enemyDetector.EnemyDetected)
-        {
 
+    public void TookDamage()
+    {
+        if (health.CurrentHealth <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

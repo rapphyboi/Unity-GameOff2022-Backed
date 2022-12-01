@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class TowerPlacer : MonoBehaviour
 {
     [SerializeField] Tower tower;
+    Currency currency;
     Canvas towerCanvas;
     Tile tileParent;
     Animator animator;
 
     private void Start()
     {
+        currency = FindObjectOfType<Currency>();
         towerCanvas = GetComponentInParent<Canvas>();
         animator = GetComponentInParent<Animator>();
         tileParent = GetComponentInParent<Tile>();
@@ -24,9 +26,14 @@ public class TowerPlacer : MonoBehaviour
 
     void PlaceTower()
     {
-        Tower myTower = Instantiate(tower, tileParent.transform.position, Quaternion.identity);
-        myTower.transform.parent = tileParent.transform;
-        animator.SetBool("isSelected", false);
-        towerCanvas.enabled = false;
+        if(currency.CurrentCurrency >= tower.Cost)
+        {
+            currency.ReduceCurrency(tower.Cost);
+            Tower myTower = Instantiate(tower, tileParent.transform.position, Quaternion.identity);
+            myTower.transform.parent = tileParent.transform;
+            animator.SetBool("isSelected", false);
+            towerCanvas.enabled = false;
+        }
+        
     }
 }

@@ -34,7 +34,6 @@ public class Scraps : MonoBehaviour
         while (true)
         {
             transform.position = Vector3.MoveTowards(transform.position, FindObjectOfType<Player>().transform.position, transferSpeed * Time.deltaTime);
-
             yield return null;
         }
         
@@ -42,15 +41,15 @@ public class Scraps : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<CollisionChild>())
+        if (collision.GetComponent<Player>())
         {
+            StopAllCoroutines();
             Destroy(gameObject);
         }
     }
 
     private void OnDestroy()
     {
-        StopAllCoroutines();
         FindObjectOfType<Currency>().AddCurrency();
     }
 }

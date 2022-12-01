@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
-    [SerializeField] float gameOverScreenDelay = 3f;
 
     Animator playerAnimator;
 
@@ -18,14 +17,13 @@ public class PlayerDeath : MonoBehaviour
         playerAnimator.SetBool("isDead", true);
     }
 
-    public void DeathAnimationEnd()
+    public void DeathAnimationEnd() //EXECUTED IN DEATH ANIMATION OF PLAYER
     {
-        Destroy(FindObjectOfType<CollisionChild>().gameObject);
         Destroy(gameObject);
     }
 
-    IEnumerator ShowGameOverScreen()
+    private void OnDestroy()
     {
-        yield return new WaitForSeconds(gameOverScreenDelay);
+        
     }
 }

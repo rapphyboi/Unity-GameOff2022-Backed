@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float maxHealth = 100f;
-    [SerializeField] float currentHealth;
-    PlayerDeath playerDeath;
-
     [SerializeField] HealthBar healthBar;
+    Health health;
+
+    PlayerDeath playerDeath;
 
     private void Start()
     {
+        health = GetComponent<Health>();
         playerDeath = GetComponent<PlayerDeath>();
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-    }
-    private void Update()
-    {
-        
+        healthBar.SetMaxHealth(health.MaxHealth);
     }
 
-    public void TakeDamage(float damage)
+    private void Update()
     {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
-        if (currentHealth <= 0)
+
+    }
+
+    public void TookDamage()
+    {
+        healthBar.SetHealth(health.CurrentHealth);
+        if (health.CurrentHealth <= 0)
         {
             playerDeath.OnLoseAllHealth();
         }

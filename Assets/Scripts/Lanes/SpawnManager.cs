@@ -24,12 +24,12 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
-        if(enemyWave.Slider.value == 10)
+        if(enemyWave.Slider.value == 35)
         {
             spawners[1].SetActive(true);
             StartCoroutine(SpawnHorde());
         }
-        else if(enemyWave.Slider.value == 20)
+        else if(enemyWave.Slider.value == 70)
         {
             spawners[2].SetActive(true);
             StartCoroutine(SpawnHorde());

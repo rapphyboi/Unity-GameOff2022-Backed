@@ -7,6 +7,8 @@ public class Currency : MonoBehaviour
 {
     [SerializeField] int startCurrency = 0;
     [SerializeField] int currentCurrency;
+    public int CurrentCurrency { get { return currentCurrency; } }
+
     TextMeshProUGUI currencyText;
 
     private void Start()
@@ -24,6 +26,12 @@ public class Currency : MonoBehaviour
     public void AddCurrency()
     {
         currentCurrency++;
+        UpdateCurrencyDisplay();
+    }
+
+    public void ReduceCurrency(int cost)
+    {
+        currentCurrency -= cost;
         UpdateCurrencyDisplay();
     }
 }

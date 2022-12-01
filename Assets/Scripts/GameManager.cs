@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance { get; private set; }
+
+
+
     //NORMAL SPAWN VARIABLES
     [SerializeField] float normalMinValueSpawn = 3f;
     public float MinValueSpawn { get { return normalMinValueSpawn; } }
@@ -20,17 +24,56 @@ public class GameManager : MonoBehaviour
     public float HordeMaxValueSpawn { get { return hordeMaxValueSpawn; } }
 
 
+    bool isPaused = false;
+    public bool IsPaused { get { return isPaused; } }
 
-    int currentSceneIndex;
 
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
     private void Start()
     {
-        
+
     }
 
-    public void RestartGame()
+    private void Update()
     {
-        SceneManager.LoadScene(currentSceneIndex);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale == 1)
+            {
+                isPaused = true;
+                PauseGame();
+            }
+            else
+            {
+                isPaused = false;
+                ResumeGame();
+            }
+        }
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene(1);
     }
 
     public void MainMenu()
@@ -40,6 +83,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        RestartGame();
+        LoadGame();
     }
 }
