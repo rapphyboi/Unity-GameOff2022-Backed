@@ -24,19 +24,39 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
-        if(enemyWave.Slider.value == 35)
+        if(enemyWave.Slider.value == 40)
         {
             spawners[1].SetActive(true);
             StartCoroutine(SpawnHorde());
         }
-        else if(enemyWave.Slider.value == 70)
+        else if(enemyWave.Slider.value == 80)
         {
             spawners[2].SetActive(true);
             StartCoroutine(SpawnHorde());
         }
         else if (enemyWave.Slider.value == 100)
         {
+            enemyHordeDuration = 25f;
+            StartCoroutine(SpawnHorde());
+        }
+        else if (enemyWave.Slider.value == 125)
+        {
+            foreach(ObjectPool objectPool in objectPools)
+            {
+                Destroy(objectPool.gameObject);
+            }
 
+            Enemy[] enemies = FindObjectsOfType<Enemy>();
+            if (enemies != null)
+            {
+                foreach (Enemy enemy in enemies)
+                {
+                    Destroy(enemy.gameObject);
+                }
+            }
+            FindObjectOfType<AudioManager>().Stop("GameMusic");
+            FindObjectOfType<AudioManager>().Play("WinMusic");
+            FindObjectOfType<Win>().EnableMenu();
         }
     }
 

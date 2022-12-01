@@ -20,6 +20,7 @@ public class Tower : MonoBehaviour
     {
         if (health.CurrentHealth <= 0)
         {
+            FindObjectOfType<AudioManager>().Play("TowerDeath");
             Destroy(gameObject);
         }
     }

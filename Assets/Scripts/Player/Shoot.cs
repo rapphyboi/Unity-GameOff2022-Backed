@@ -40,7 +40,7 @@ public class Shoot : MonoBehaviour
 */
     public void ShootProjectile()
     {
-        Debug.Log("Shooting Projectile");
+        FindObjectOfType<AudioManager>().Play("Shoot");
         Instantiate(projectilePrefab, gun.position, Quaternion.identity);
     }
 }

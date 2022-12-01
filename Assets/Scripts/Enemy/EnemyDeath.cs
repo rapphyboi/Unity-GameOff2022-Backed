@@ -18,6 +18,7 @@ public class EnemyDeath : MonoBehaviour
 
     public void DropScrapsOnDeath()
     {
+        FindObjectOfType<AudioManager>().Play("EnemyDeath");
         Instantiate(scraps, transform.position, Quaternion.identity);
     }
 }

@@ -83,7 +83,11 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\Lanes\LaneDetector.cs" />
     <Compile Include="Assets\Scripts\UI\Tutorial.cs" />
-    <Compile Include="Assets\Paused.cs" />
+    <Compile Include="Assets\Scripts\Paused.cs" />
+    <Compile Include="Assets\Scripts\GameOver.cs" />
+    <Compile Include="Assets\Scripts\SFX\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\SFX\Sound.cs" />
+    <Compile Include="Assets\Scripts\Win.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

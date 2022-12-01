@@ -30,6 +30,7 @@ public class TowerPlacer : MonoBehaviour
         {
             currency.ReduceCurrency(tower.Cost);
             Tower myTower = Instantiate(tower, tileParent.transform.position, Quaternion.identity);
+            FindObjectOfType<AudioManager>().Play("Confirm");
             myTower.transform.parent = tileParent.transform;
             animator.SetBool("isSelected", false);
             towerCanvas.enabled = false;

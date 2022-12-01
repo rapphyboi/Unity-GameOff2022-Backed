@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] float hordeMaxValueSpawn = 3f;
     public float HordeMaxValueSpawn { get { return hordeMaxValueSpawn; } }
 
+    [SerializeField] static bool hasPlayed = false;
+    public bool HasPlayed { get { return hasPlayed; } }
 
     bool isPaused = false;
     public bool IsPaused { get { return isPaused; } }
@@ -73,16 +75,20 @@ public class GameManager : MonoBehaviour
 
     public void LoadGame()
     {
+        FindObjectOfType<AudioManager>().Play("MenuSelect");
+        ResumeGame();
         SceneManager.LoadScene(1);
     }
 
     public void MainMenu()
     {
+        FindObjectOfType<AudioManager>().Play("MenuSelect");
         SceneManager.LoadScene(0);
     }
 
     public void GameOver()
     {
-        LoadGame();
+        hasPlayed = true;
+        Time.timeScale = 0;
     }
 }

@@ -23,7 +23,7 @@ public class EnemyWave : MonoBehaviour
         while (true)
         {
             slider.value++;
-            if (slider.value == 100f)
+            if (slider.value == 125f)
             {
                 yield break;
             }

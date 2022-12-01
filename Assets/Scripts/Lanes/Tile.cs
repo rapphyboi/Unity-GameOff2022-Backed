@@ -10,33 +10,52 @@ public class Tile : MonoBehaviour
     [SerializeField] TileManager tileManager;
     [SerializeField] Animator animator;
 
+    GameManager gameManager;
+
     private void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         tileManager = FindObjectOfType<TileManager>();
     }
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (gameManager.IsPaused == true)
         {
-            foreach(Tile tile in tileManager.tiles)
+            Debug.Log("Game is Paused");
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
             {
-                tile.border.enabled = false;
-                tile.towerCanvas.enabled = false;
-                tile.animator.SetBool("isSelected", false);
+                foreach (Tile tile in tileManager.tiles)
+                {
+                    tile.border.enabled = false;
+                    tile.towerCanvas.enabled = false;
+                    tile.animator.SetBool("isSelected", false);
+                }
+                FindObjectOfType<AudioManager>().Play("TowerSelect");
+                border.enabled = true;
+                towerCanvas.enabled = true;
+                animator.SetBool("isSelected", true);
             }
-            border.enabled = true;
-            towerCanvas.enabled = true;
-            animator.SetBool("isSelected", true);
         }
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (gameManager.IsPaused == true)
         {
-            border.enabled = false;
-            towerCanvas.enabled = false;
-            animator.SetBool("isSelected", false);
+            Debug.Log("Game is Paused");
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                FindObjectOfType<AudioManager>().Play("TowerDeselect");
+                border.enabled = false;
+                towerCanvas.enabled = false;
+                animator.SetBool("isSelected", false);
+            }
         }
     }
 }
